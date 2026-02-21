@@ -1,0 +1,12 @@
+[workspace]
+members = [
+    "crates/git-core",
+    "crates/foos",
+    "crates/sanity",
+]
+resolver = "2"
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+thiserror = "1"
+chrono = { version = "0.4", features = ["serde"] }
