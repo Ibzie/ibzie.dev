@@ -3,6 +3,7 @@ members = [
     "crates/git-core",
     "crates/foos",
     "crates/sanity",
+    "crates/git-server",
 ]
 resolver = "2"
 

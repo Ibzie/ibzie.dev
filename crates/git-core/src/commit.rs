@@ -36,9 +36,11 @@ pub fn get_commit(base_dir: &Path, repo: &str, hash: &str) -> Result<Commit, Git
         hash: hash.to_string(),
     })?;
 
-    let commit = git_repo.find_commit(oid).map_err(|_| GitError::ObjectNotFound {
-        hash: hash.to_string(),
-    })?;
+    let commit = git_repo
+        .find_commit(oid)
+        .map_err(|_| GitError::ObjectNotFound {
+            hash: hash.to_string(),
+        })?;
 
     let author = commit.author();
     let committer = commit.committer();
@@ -81,11 +83,9 @@ pub fn log(
             r#ref: branch.to_string(),
         })?;
 
-    let target = reference
-        .target()
-        .ok_or_else(|| GitError::RefNotFound {
-            r#ref: branch.to_string(),
-        })?;
+    let target = reference.target().ok_or_else(|| GitError::RefNotFound {
+        r#ref: branch.to_string(),
+    })?;
 
     let mut revwalk = git_repo.revwalk()?;
     revwalk.push(target)?;
@@ -175,9 +175,7 @@ mod tests {
         let (temp_dir, name) = make_repo_with_commits(1);
         let repo_path = temp_dir.path().join(&name);
         let repo = git2::Repository::open(&repo_path).unwrap();
-        let head = repo
-            .find_branch("master", git2::BranchType::Local)
-            .unwrap();
+        let head = repo.find_branch("master", git2::BranchType::Local).unwrap();
         let head_oid = head.get().target().unwrap();
 
         let commit = get_commit(temp_dir.path(), &name, &head_oid.to_string()).unwrap();

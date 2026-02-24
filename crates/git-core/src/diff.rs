@@ -257,13 +257,10 @@ mod tests {
         let (temp_dir, name) = make_repo_with_commits(1);
         let repo_path = temp_dir.path().join(&name);
         let repo = git2::Repository::open(&repo_path).unwrap();
-        let head = repo
-            .find_branch("master", git2::BranchType::Local)
-            .unwrap();
+        let head = repo.find_branch("master", git2::BranchType::Local).unwrap();
         let head_oid = head.get().target().unwrap().to_string();
 
-        let diff =
-            diff_commits(temp_dir.path(), &name, &head_oid, &head_oid, false).unwrap();
+        let diff = diff_commits(temp_dir.path(), &name, &head_oid, &head_oid, false).unwrap();
         assert_eq!(diff.files_changed.len(), 0);
         assert_eq!(diff.insertions, 0);
         assert_eq!(diff.deletions, 0);
@@ -272,14 +269,8 @@ mod tests {
     #[test]
     fn test_diff_branch_from_base_same_branch() {
         let (temp_dir, name) = make_repo_with_commits(1);
-        let diff = diff_branch_from_base(
-            temp_dir.path(),
-            &name,
-            "master",
-            "master",
-            false,
-        )
-        .unwrap();
+        let diff =
+            diff_branch_from_base(temp_dir.path(), &name, "master", "master", false).unwrap();
         assert_eq!(diff.files_changed.len(), 0);
     }
 }

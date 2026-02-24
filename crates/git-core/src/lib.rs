@@ -1,19 +1,19 @@
 //! Git Core - wraps libgit2 for repository operations
 
-pub mod error;
-pub mod types;
-mod repo;
+mod branch;
 mod commit;
 mod diff;
-mod branch;
+pub mod error;
 mod object;
+mod repo;
+pub mod types;
 
 // Re-export types
 pub use types::*;
 
 // Re-export diff types
-pub use diff::{DiffSummary, FileDiff, FileStatus};
 pub use branch::BranchInfo;
+pub use diff::{DiffSummary, FileDiff, FileStatus};
 
 // Repository operations
 pub fn init_repo(base_dir: &std::path::Path, name: &str) -> Result<Map, error::GitError> {
@@ -84,7 +84,11 @@ pub fn create_branch(
     branch::create_branch(base_dir, repo, name, from_oid)
 }
 
-pub fn delete_branch(base_dir: &std::path::Path, repo: &str, name: &str) -> Result<(), error::GitError> {
+pub fn delete_branch(
+    base_dir: &std::path::Path,
+    repo: &str,
+    name: &str,
+) -> Result<(), error::GitError> {
     branch::delete_branch(base_dir, repo, name)
 }
 

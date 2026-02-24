@@ -110,7 +110,10 @@ fn main() {
                         &commit.hash[..7],
                         commit.message.lines().next().unwrap_or("")
                     );
-                    println!("    Author: {} <{}>", commit.author.name, commit.author.email);
+                    println!(
+                        "    Author: {} <{}>",
+                        commit.author.name, commit.author.email
+                    );
                     println!();
                 }
             }
@@ -120,10 +123,7 @@ fn main() {
         Commands::Show { repo, hash } => match git::get_commit(&cli.repo_dir, &repo, &hash) {
             Ok(commit) => {
                 println!("commit {}", commit.hash);
-                println!(
-                    "Author: {} <{}>",
-                    commit.author.name, commit.author.email
-                );
+                println!("Author: {} <{}>", commit.author.name, commit.author.email);
                 println!("Date:   {}", commit.author.timestamp);
                 println!();
                 println!("{}", commit.message);
@@ -168,30 +168,28 @@ fn main() {
             }
         }
 
-        Commands::Diff {
-            repo,
-            base,
-            head,
-        } => match git::diff_branch_from_base(&cli.repo_dir, &repo, &base, &head, true) {
-            Ok(diff) => {
-                println!("Files changed: {}", diff.files_changed.len());
-                println!("Insertions: {}", diff.insertions);
-                println!("Deletions: {}", diff.deletions);
-                println!();
-                for file in diff.files_changed {
-                    println!(
-                        "{}: {} -> {}",
-                        format!("{:?}", file.status),
-                        file.old_path.as_deref().unwrap_or("/dev/null"),
-                        file.new_path.as_deref().unwrap_or("/dev/null")
-                    );
-                    if let Some(patch) = file.patch {
-                        println!("{}", patch);
+        Commands::Diff { repo, base, head } => {
+            match git::diff_branch_from_base(&cli.repo_dir, &repo, &base, &head, true) {
+                Ok(diff) => {
+                    println!("Files changed: {}", diff.files_changed.len());
+                    println!("Insertions: {}", diff.insertions);
+                    println!("Deletions: {}", diff.deletions);
+                    println!();
+                    for file in diff.files_changed {
+                        println!(
+                            "{}: {} -> {}",
+                            format!("{:?}", file.status),
+                            file.old_path.as_deref().unwrap_or("/dev/null"),
+                            file.new_path.as_deref().unwrap_or("/dev/null")
+                        );
+                        if let Some(patch) = file.patch {
+                            println!("{}", patch);
+                        }
                     }
                 }
+                Err(e) => eprintln!("Error: {}", e),
             }
-            Err(e) => eprintln!("Error: {}", e),
-        },
+        }
 
         Commands::Repos => match git::list_repos(&cli.repo_dir) {
             Ok(repos) => {

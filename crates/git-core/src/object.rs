@@ -28,11 +28,7 @@ fn validate_repo_path(base_dir: &Path, name: &str) -> Result<std::path::PathBuf,
 }
 
 /// Read a blob object by hash
-pub fn get_blob(
-    base_dir: &Path,
-    repo: &str,
-    hash: &str,
-) -> Result<Blob, GitError> {
+pub fn get_blob(base_dir: &Path, repo: &str, hash: &str) -> Result<Blob, GitError> {
     let repo_path = validate_repo_path(base_dir, repo)?;
     let git_repo = git2::Repository::open(&repo_path)?;
 
@@ -62,9 +58,11 @@ pub fn get_tree(base_dir: &Path, repo: &str, hash: &str) -> Result<Tree, GitErro
         hash: hash.to_string(),
     })?;
 
-    let tree = git_repo.find_tree(oid).map_err(|_| GitError::ObjectNotFound {
-        hash: hash.to_string(),
-    })?;
+    let tree = git_repo
+        .find_tree(oid)
+        .map_err(|_| GitError::ObjectNotFound {
+            hash: hash.to_string(),
+        })?;
 
     let entries: Vec<TreeEntry> = tree
         .iter()
@@ -99,15 +97,15 @@ pub fn get_tag(base_dir: &Path, repo: &str, name: &str) -> Result<Tag, GitError>
             hash: name.to_string(),
         })?;
 
-    let oid = reference
-        .target()
-        .ok_or_else(|| GitError::ObjectNotFound {
-            hash: name.to_string(),
-        })?;
-
-    let tag = git_repo.find_tag(oid).map_err(|_| GitError::ObjectNotFound {
+    let oid = reference.target().ok_or_else(|| GitError::ObjectNotFound {
         hash: name.to_string(),
     })?;
+
+    let tag = git_repo
+        .find_tag(oid)
+        .map_err(|_| GitError::ObjectNotFound {
+            hash: name.to_string(),
+        })?;
 
     let tagger = tag.tagger().map(|sig| Signature {
         name: sig.name().unwrap_or("").to_string(),
@@ -179,9 +177,7 @@ mod tests {
         let repo_path = temp_dir.path().join(&name);
         let repo = git2::Repository::open(&repo_path).unwrap();
 
-        let head = repo
-            .find_branch("master", git2::BranchType::Local)
-            .unwrap();
+        let head = repo.find_branch("master", git2::BranchType::Local).unwrap();
         let head_oid = head.get().target().unwrap();
         let commit = repo.find_commit(head_oid).unwrap();
         let tree = commit.tree().unwrap();
@@ -199,9 +195,7 @@ mod tests {
         let repo_path = temp_dir.path().join(&name);
         let repo = git2::Repository::open(&repo_path).unwrap();
 
-        let head = repo
-            .find_branch("master", git2::BranchType::Local)
-            .unwrap();
+        let head = repo.find_branch("master", git2::BranchType::Local).unwrap();
         let head_oid = head.get().target().unwrap();
         let commit = repo.find_commit(head_oid).unwrap();
         let tree_oid = commit.tree_id();

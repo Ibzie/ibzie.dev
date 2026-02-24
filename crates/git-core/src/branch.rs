@@ -52,10 +52,7 @@ pub fn list_branches(base_dir: &Path, repo: &str) -> Result<Vec<BranchInfo>, Git
             .target()
             .map(|oid| oid.to_string())
             .unwrap_or_default();
-        let is_head = head_name
-            .as_ref()
-            .map(|h| h == &name)
-            .unwrap_or(false);
+        let is_head = head_name.as_ref().map(|h| h == &name).unwrap_or(false);
 
         branches.push(BranchInfo {
             name,
@@ -77,10 +74,7 @@ pub fn create_branch(
     let repo_path = validate_repo_path(base_dir, repo)?;
     let git_repo = git2::Repository::open(&repo_path)?;
 
-    if git_repo
-        .find_branch(name, git2::BranchType::Local)
-        .is_ok()
-    {
+    if git_repo.find_branch(name, git2::BranchType::Local).is_ok() {
         return Err(GitError::BranchExists {
             name: name.to_string(),
         });
@@ -178,9 +172,7 @@ mod tests {
         let (temp_dir, name) = make_repo_with_commits(1);
         let repo_path = temp_dir.path().join(&name);
         let repo = git2::Repository::open(&repo_path).unwrap();
-        let head = repo
-            .find_branch("master", git2::BranchType::Local)
-            .unwrap();
+        let head = repo.find_branch("master", git2::BranchType::Local).unwrap();
         let head_oid = head.get().target().unwrap().to_string();
 
         let branch = create_branch(temp_dir.path(), &name, "feature", &head_oid).unwrap();
@@ -192,9 +184,7 @@ mod tests {
         let (temp_dir, name) = make_repo_with_commits(1);
         let repo_path = temp_dir.path().join(&name);
         let repo = git2::Repository::open(&repo_path).unwrap();
-        let head = repo
-            .find_branch("master", git2::BranchType::Local)
-            .unwrap();
+        let head = repo.find_branch("master", git2::BranchType::Local).unwrap();
         let head_oid = head.get().target().unwrap().to_string();
 
         create_branch(temp_dir.path(), &name, "feature", &head_oid).unwrap();

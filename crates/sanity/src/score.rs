@@ -33,7 +33,7 @@ impl Metric for LargeFileMetric {
         if count > 0 {
             MetricResult {
                 name: "large_file",
-                delta: weight * count as i32,
+                delta: weight * count,
                 detail: format!("{} file(s) exceed {} lines", count, threshold),
             }
         } else {
@@ -88,16 +88,12 @@ impl Metric for ReadmeMetric {
     fn evaluate(&self, input: &MetricInput) -> MetricResult {
         let weight = input.config.weights.readme_updated;
 
-        let has_readme = input
-            .diff
-            .files_changed
-            .iter()
-            .any(|f| {
-                f.new_path
-                    .as_ref()
-                    .map(|p| p.to_uppercase().starts_with("README"))
-                    .unwrap_or(false)
-            });
+        let has_readme = input.diff.files_changed.iter().any(|f| {
+            f.new_path
+                .as_ref()
+                .map(|p| p.to_uppercase().starts_with("README"))
+                .unwrap_or(false)
+        });
 
         if has_readme {
             MetricResult {
@@ -140,7 +136,11 @@ impl Metric for TestCoverageMetric {
 
             if path.contains("test") || path.ends_with("_test.rs") || path.ends_with(".test.js") {
                 test_lines += lines;
-            } else if path.ends_with(".rs") || path.ends_with(".js") || path.ends_with(".ts") || path.ends_with(".py") {
+            } else if path.ends_with(".rs")
+                || path.ends_with(".js")
+                || path.ends_with(".ts")
+                || path.ends_with(".py")
+            {
                 source_lines += lines;
             }
         }
@@ -263,10 +263,7 @@ impl Metric for JsConsoleLogMetric {
 
 /// Analyze diff and produce sanity report
 pub fn analyze(diff: &DiffSummary, config: &SanityConfig) -> SanityReport {
-    let input = MetricInput {
-        diff,
-        config,
-    };
+    let input = MetricInput { diff, config };
 
     let metrics: Vec<Box<dyn Metric>> = vec![
         Box::new(LargeFileMetric),
