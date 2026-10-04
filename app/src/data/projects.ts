@@ -26,11 +26,11 @@ export type Project = {
   stack: string[]
   tagline: string
   description: string[]
-  /** Optional — rendered only when attached. */
+  /** Optional: rendered only when attached. */
   video?: ProjectVideo
-  /** Optional — rendered only when attached. */
+  /** Optional: rendered only when attached. */
   paper?: ProjectPaper
-  /** Optional outbound link — live demo, hosted artifact, external write-up. */
+  /** Optional outbound link: live demo, hosted artifact, external write-up. */
   demo?: ProjectLink
   links: ProjectLink[]
 }
@@ -48,7 +48,7 @@ export type Profile = {
 
 /**
  * Project content lives as one JSON file per project in `src/content/projects/`.
- * Adding or removing a project is a matter of adding or deleting that file —
+ * Adding or removing a project is a matter of adding or deleting that file,
  * no code changes required. Files are collected eagerly and sorted by `num`.
  */
 const projectModules = import.meta.glob<{ default: Project }>('../content/projects/*.json', {

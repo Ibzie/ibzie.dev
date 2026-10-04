@@ -74,19 +74,19 @@ export default function About() {
           <div className="mt-6 space-y-4 text-base md:text-lg leading-relaxed text-[var(--ink)]/90">
             <p>
               I'm Ibrahim, an ML engineer based in Pakistan. I work on the systems side of machine
-              learning — training loops, kernels, evaluation harnesses — and on the research side,
+              learning (training loops, kernels, evaluation harnesses) and on the research side,
               where my current obsessions are generative 3D models, mixture-of-experts
               interpretability, and game-theoretic evaluation of sequence models.
             </p>
             <p>
               My research exists as pre-prints on GitHub rather than in venues: the hypotheses are
               validated at small scale, and the limiting factor is compute access, not ideas. That
-              constraint shapes how I work — small experiments designed to be maximally informative,
+              constraint shapes how I work: small experiments designed to be maximally informative,
               code written to scale the moment hardware appears.
             </p>
             <p>
-              Living with climate-stressed electricity infrastructure — heatwaves, floods, load
-              shedding — is part of why I care about efficient, resilient ML systems that do more
+              Living with climate-stressed electricity infrastructure (heatwaves, floods, load
+              shedding) is part of why I care about efficient, resilient ML systems that do more
               with less.
             </p>
           </div>

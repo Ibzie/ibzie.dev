@@ -13,7 +13,7 @@
   ],
   "paper": {
     "title": "Load Balancing Mechanisms in Mixture-of-Experts Transformers Suppress Routing Informativeness at Small Scale: An Empirical Circuit-Tracing Study",
-    "authors": "Ibrahim Akhtar — pre-print, not peer-reviewed",
+    "authors": "Ibrahim Akhtar · pre-print, not peer-reviewed",
     "abstract": "Two otherwise identical DeepSeekMoE style transformers (298M parameters, 32 routed plus 2 shared experts, top 4 selection) are trained on WikiText 2, one with auxiliary loss free balancing and one with a standard auxiliary loss penalty. Both reach equivalent language quality (final loss 2.793 vs 2.758). Auxiliary loss free balancing achieves near perfect load distribution but routing entropy of 98.5% of the theoretical maximum, meaning the routing distribution is nearly uniform regardless of input domain. The auxiliary loss model fails to fully balance but produces lower per subject entropy in 55 of 57 MMLU subjects. We attribute the effect to a scale mismatch between accumulated bias terms and expert semantic differentiation, and discuss implications for balancing design at small scale.",
     "href": "https://github.com/Ibzie/MoE-Circuit-Tracer-Experiment/blob/main/MoE%20Circuit%20Tracing%20Study.pdf"
   },

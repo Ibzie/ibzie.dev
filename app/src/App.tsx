@@ -52,7 +52,7 @@ export default function App() {
       <footer className="border-t border-[var(--ink)]/15">
         <div className="max-w-6xl mx-auto px-5 pt-6 pb-14 flex flex-wrap items-center justify-between gap-3">
           <span className="font-display text-lg tracking-[0.2em] text-[var(--ink-dim)]">
-            © 2026 IBZIE.DEV — SIGNAL ENDS
+            © 2026 IBZIE.DEV · SIGNAL ENDS
           </span>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

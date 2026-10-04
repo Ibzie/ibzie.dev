@@ -22,7 +22,7 @@ export default function Contact() {
       </h1>
 
       <p className="reveal mt-6 max-w-xl text-lg text-[var(--ink)]/85">
-        Research collaboration, compute access, or interesting problems — reach out on LinkedIn or X
+        Research collaboration, compute access, or interesting problems? Reach out on LinkedIn or X
         if you need to get in touch. The fastest way to reach me is through LinkedIn or X.
       </p>
 
@@ -54,7 +54,7 @@ export default function Contact() {
       </div>
 
       <p className="reveal mt-8 font-display text-lg tracking-[0.15em] text-[var(--ink-dim)]">
-        ▸ FASTEST RESPONSE ON LINKEDIN / X — SEE CHANNEL.LIST ABOVE
+        ▸ FASTEST RESPONSE ON LINKEDIN / X · SEE CHANNEL.LIST ABOVE
       </p>
     </div>
   )

@@ -13,7 +13,7 @@
   ],
   "paper": {
     "title": "Multi-Perspective SDF-VAE: Interpretable Latent Representations through Signed Distance Functions",
-    "authors": "Ibrahim Akhtar — pre-print, not peer-reviewed",
+    "authors": "Ibrahim Akhtar · pre-print, not peer-reviewed",
     "abstract": "Variational autoencoders suffer from unreliable latent uncertainty estimates and a lack of geometric interpretability. The Multi-Perspective SDF-VAE interposes five independent observer networks between encoder and latent parameters, each producing a signed distance value representing proximity to a learned feature manifold, with confidence weighted aggregation producing the latent parameters. On CelebA the architecture improves latent variance stability by 358x over a vanilla VAE with near perfect train test generalisation (ratio 0.9996); cross dataset validation on Fashion MNIST confirms calibration (ECE 0.129) and out of distribution detection (AUROC 0.992). Reconstruction quality does not surpass simpler baselines. A formal Lipschitz continuity bound establishes the theoretical basis for the observed variance stability.",
     "href": "https://github.com/Ibzie/Multi-Perspective-SDF-VAE-Research/blob/main/paper/paper.pdf"
   },

@@ -47,7 +47,7 @@ export default function ProjectModal({
           style={{ background: 'var(--paper-2)' }}
         >
           <span className="font-display text-lg md:text-xl tracking-[0.2em] text-[var(--ink-dim)]">
-            FILE {project.num}.DAT — {project.id.toUpperCase()}
+            FILE {project.num}.DAT · {project.id.toUpperCase()}
           </span>
           <button
             onClick={onClose}
@@ -58,7 +58,7 @@ export default function ProjectModal({
         </div>
 
         <div className="p-4 md:p-8">
-          {/* media area — video and/or paper, both optional */}
+          {/* media area: video and/or paper, both optional */}
           {project.video && (
             <div
               className="relative w-full border-2 border-[var(--ink)] overflow-hidden"

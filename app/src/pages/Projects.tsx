@@ -35,7 +35,7 @@ export default function Projects() {
         <span className="text-right">STATUS</span>
       </div>
 
-      {/* index rows — siblings dim on hover */}
+      {/* index rows: siblings dim on hover */}
       <div className="group/list">
         {projects.map((p) => (
           <button
@@ -71,7 +71,7 @@ export default function Projects() {
       </div>
 
       <p className="mt-8 font-display text-lg tracking-[0.15em] text-[var(--ink-dim)] reveal">
-        ▸ SELECT AN ENTRY TO OPEN ITS FILE — DEMO REEL + FULL WRITE-UP
+        ▸ SELECT AN ENTRY TO OPEN ITS FILE · DEMO REEL + FULL WRITE-UP
       </p>
 
       <div className="mt-6 reveal border-2 border-[var(--ink)] hard-shadow" style={{ background: 'var(--paper-2)' }}>
