@@ -1,0 +1,20 @@
+{
+  "id": "sdf-vae",
+  "num": "01",
+  "year": "2025",
+  "title": "SDF-VAE",
+  "type": "RESEARCH / GENERATIVE 3D",
+  "status": "COMPUTE-BLOCKED",
+  "stack": ["PyTorch", "CUDA", "Trimesh", "NumPy"],
+  "tagline": "Variational autoencoder over signed distance fields for 3D shape generation.",
+  "description": [
+    "SDF-VAE learns a continuous latent space over signed distance functions, so 3D geometry becomes something you can interpolate, sample, and reconstruct instead of something you store as meshes. The encoder compresses an SDF grid into a low-dimensional code; the decoder reconstructs the field, and marching cubes extracts the surface at arbitrary resolution.",
+    "Current status: pre-print. Hypotheses validated at small scale only — reconstruction fidelity and latent interpolation both behave as predicted on the shape categories I could afford to train. Full-scale training is blocked by compute access, which is exactly the bottleneck this line of research needs to clear."
+  ],
+  "video": {
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "SDF-VAE reconstruction and latent interpolation demo"
+  },
+  "demo": { "label": "▸ LIVE DEMO", "href": "https://github.com/ibzie" },
+  "links": [{ "label": "GITHUB ▸ SOURCE", "href": "https://github.com/ibzie" }]
+}

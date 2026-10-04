@@ -1,0 +1,14 @@
+{
+  "name": "ibzie.dev",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix app run dev",
+    "build": "npm --prefix app run build",
+    "lint": "npm --prefix app run lint",
+    "preview": "wrangler pages dev app/dist",
+    "deploy": "wrangler pages deploy app/dist --project-name=ibzie-dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.147.0"
+  }
+}

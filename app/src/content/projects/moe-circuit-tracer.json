@@ -1,0 +1,21 @@
+{
+  "id": "moe-circuit-tracer",
+  "num": "02",
+  "year": "2025",
+  "title": "MoE Circuit Tracer",
+  "type": "RESEARCH / INTERPRETABILITY",
+  "status": "PRE-PRINT",
+  "stack": ["Python", "PyTorch", "JAX", "Weights & Biases"],
+  "tagline": "Traces which experts fire, and why, inside mixture-of-experts models.",
+  "description": [
+    "Mixture-of-experts layers route each token to a handful of experts, but the routing decision is a black box. MoE Circuit Tracer instruments the forward pass to record per-token routing, then attributes downstream behavior back to specific experts — building a circuit-level map of which subnetworks own which behaviors.",
+    "The goal is mechanistic: not \"expert 7 is active\" but \"expert 7 implements this feature, and here is the causal trace proving it.\" Pre-print stage; the attribution method holds up on small open models, and the tooling is built to scale to larger checkpoints once compute is available."
+  ],
+  "paper": {
+    "title": "Circuit-Level Attribution of Expert Routing in Mixture-of-Experts Language Models",
+    "authors": "Ibrahim — pre-print, not peer-reviewed",
+    "abstract": "We introduce a tracing harness that records per-token expert routing during the forward pass of mixture-of-experts models and attributes downstream behavior to individual experts via causal interventions. On small open checkpoints, the method recovers sparse, behavior-specific circuits; we release the tooling and discuss scaling limits imposed by compute access.",
+    "href": "https://github.com/ibzie"
+  },
+  "links": [{ "label": "GITHUB ▸ SOURCE", "href": "https://github.com/ibzie" }]
+}
