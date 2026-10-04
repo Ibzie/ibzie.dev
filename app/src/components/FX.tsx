@@ -36,13 +36,13 @@ export function HUD() {
     <>
       <button
         onClick={() => setPlaying((p) => !p)}
-        className="fixed bottom-4 right-5 z-[95] font-display text-lg tracking-widest cursor-pointer select-none"
+        className="hidden sm:block fixed bottom-4 right-5 z-[95] font-display text-lg tracking-widest cursor-pointer select-none"
         style={{ color: playing ? 'var(--green)' : 'var(--red)' }}
         aria-label="Toggle playback timer"
       >
         {playing ? '▸ PLAY' : '❚❚ PAUSE'} {formatTime(seconds)}
       </button>
-      <div className="fixed bottom-4 left-5 z-[95] font-display text-lg tracking-widest text-[var(--ink-dim)] flex items-center gap-2">
+      <div className="hidden sm:flex fixed bottom-4 left-5 z-[95] font-display text-lg tracking-widest text-[var(--ink-dim)] items-center gap-2">
         <span
           className="inline-block w-2 h-2"
           style={{ background: 'var(--green)', boxShadow: '0 0 6px rgba(44,122,63,0.6)' }}
@@ -56,9 +56,9 @@ export function HUD() {
 /** Chapter divider with decorative rules, e.g. "CH.01 ▸ PROJECT INDEX". */
 export function ChapterMarker({ chapter, title }: { chapter: string; title: string }) {
   return (
-    <div className="flex items-center gap-4 reveal">
+    <div className="flex items-center gap-2 sm:gap-4 reveal">
       <span className="h-px flex-1 bg-[var(--ink)] opacity-20" />
-      <span className="font-display text-xl md:text-2xl tracking-[0.2em] text-[var(--ink)]">
+      <span className="font-display text-base sm:text-xl md:text-2xl tracking-[0.12em] sm:tracking-[0.2em] text-[var(--ink)] whitespace-nowrap">
         {chapter} <span style={{ color: 'var(--red)' }}>▸</span> {title}
       </span>
       <span className="h-px flex-1 bg-[var(--ink)] opacity-20" />

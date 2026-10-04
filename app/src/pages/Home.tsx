@@ -45,11 +45,11 @@ export default function Home({ onNavigate }: { onNavigate: (p: PageId) => void }
           <div className="border-b-2 border-[var(--ink)] px-4 py-1.5 font-display text-base tracking-[0.25em] text-[var(--ink-dim)]">
             SYS.STATUS
           </div>
-          <div className="px-4 py-3 font-display text-lg md:text-xl tracking-[0.1em] space-y-1">
-            <div className="flex justify-between gap-6"><span className="text-[var(--ink-dim)]">ROLE</span><span>{profile.role} @ WEEL.IO</span></div>
-            <div className="flex justify-between gap-6"><span className="text-[var(--ink-dim)]">LOCATION</span><span>{profile.location}</span></div>
-            <div className="flex justify-between gap-6"><span className="text-[var(--ink-dim)]">STATUS</span><span style={{ color: 'var(--green)' }}>● {profile.availability}</span></div>
-            <div className="flex justify-between gap-6"><span className="text-[var(--ink-dim)]">COMPUTE</span><span style={{ color: 'var(--red)' }}>● BLOCKED · SEEKING ACCESS</span></div>
+          <div className="px-4 py-3 font-display text-base sm:text-lg md:text-xl tracking-[0.08em] space-y-1">
+            <div className="flex justify-between gap-3 sm:gap-6"><span className="text-[var(--ink-dim)] shrink-0">ROLE</span><span className="text-right">{profile.role} @ WEEL.IO</span></div>
+            <div className="flex justify-between gap-3 sm:gap-6"><span className="text-[var(--ink-dim)] shrink-0">LOCATION</span><span className="text-right">{profile.location}</span></div>
+            <div className="flex justify-between gap-3 sm:gap-6"><span className="text-[var(--ink-dim)] shrink-0">STATUS</span><span className="text-right" style={{ color: 'var(--green)' }}>● {profile.availability}</span></div>
+            <div className="flex justify-between gap-3 sm:gap-6"><span className="text-[var(--ink-dim)] shrink-0">COMPUTE</span><span className="text-right" style={{ color: 'var(--red)' }}>● BLOCKED · SEEKING ACCESS</span></div>
           </div>
         </div>
       </div>

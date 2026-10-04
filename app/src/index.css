@@ -181,6 +181,14 @@ body {
   animation: marquee 28s linear infinite;
 }
 
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .hard-shadow {
   box-shadow: 10px 10px 0 rgba(0, 105, 240, 0.9);
 }
@@ -190,6 +198,15 @@ body {
 }
 .hard-shadow-red {
   box-shadow: 6px 6px 0 rgba(250, 37, 0, 0.85);
+}
+
+@media (max-width: 640px) {
+  .hard-shadow {
+    box-shadow: 5px 5px 0 rgba(0, 105, 240, 0.9);
+  }
+  .hard-shadow-red {
+    box-shadow: 4px 4px 0 rgba(250, 37, 0, 0.85);
+  }
 }
 
 .btn-primary {

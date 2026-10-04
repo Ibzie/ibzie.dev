@@ -20,9 +20,9 @@ export default function Projects() {
       <ChapterMarker chapter="CH.01" title="PROJECT INDEX" />
 
       <div className="mt-6 flex flex-wrap items-baseline justify-between gap-2 reveal">
-        <h1 className="font-display text-5xl md:text-7xl leading-[0.85] chroma">ALL PROJECTS</h1>
-        <p className="font-display text-lg tracking-[0.15em] text-[var(--ink-dim)]">
-          {projects.length} ENTRIES · {profile.github.replace('https://', '').toUpperCase()} · PRE-PRINT ARCHIVE
+        <h1 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[0.85] chroma">ALL PROJECTS</h1>
+        <p className="font-display text-base sm:text-lg tracking-[0.12em] sm:tracking-[0.15em] text-[var(--ink-dim)]">
+          {projects.length} ENTRIES · {profile.github.replace('https://', '').toUpperCase()} · ARCHIVE
         </p>
       </div>
 
@@ -42,27 +42,27 @@ export default function Projects() {
             key={p.id}
             onClick={() => setOpen(p)}
             className="project-row reveal w-full text-left cursor-pointer border-b border-[var(--ink)]/15 py-5 md:py-6
-                       grid grid-cols-[2.5rem_1fr_auto] md:grid-cols-[3rem_5rem_1fr_14rem_6rem] gap-4 items-center
+                       grid grid-cols-[2rem_1fr] md:grid-cols-[3rem_5rem_1fr_14rem_6rem] gap-x-3 gap-y-2 md:gap-4 items-center
                        transition-all duration-200 hover:translate-x-1.5 hover:bg-[var(--yellow)]/25
                        group-hover/list:opacity-40 hover:!opacity-100"
           >
             <span className="font-display text-xl text-[var(--ink-dim)]">{p.num}</span>
             <span className="hidden md:block font-display text-xl text-[var(--ink-dim)]">{p.year}</span>
             <span className="min-w-0">
-              <span className="project-title block font-display text-3xl md:text-4xl leading-none uppercase truncate">
+              <span className="project-title block font-display text-2xl sm:text-3xl md:text-4xl leading-tight uppercase truncate">
                 {p.title}
               </span>
               <span className="block mt-1 text-sm text-[var(--ink-dim)] truncate">{p.tagline}</span>
-              <span className="md:hidden block mt-1 font-display text-base tracking-[0.15em]" style={{ color: 'var(--red)' }}>
+              <span className="md:hidden block mt-1 font-display text-base tracking-[0.12em]" style={{ color: 'var(--red)' }}>
                 {p.type} · {p.year}
               </span>
             </span>
             <span className="hidden md:block font-display text-lg tracking-[0.12em]" style={{ color: 'var(--red)' }}>
               {p.type}
             </span>
-            <span className="font-display text-base md:text-lg tracking-[0.15em] text-right" style={{ color: statusColor[p.status] }}>
+            <span className="col-start-2 md:col-start-auto font-display text-sm sm:text-base md:text-lg tracking-[0.12em] md:text-right" style={{ color: statusColor[p.status] }}>
               ● {p.status}
-              <span className="block text-[var(--ink-dim)]">
+              <span className="md:block ml-2 md:ml-0 text-[var(--ink-dim)]">
                 OPEN FILE ▸ {p.video && p.paper ? '[VID+PDF]' : p.video ? '[VID]' : p.paper ? '[PDF]' : '[—]'}
               </span>
             </span>
