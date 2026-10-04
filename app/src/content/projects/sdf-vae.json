@@ -1,20 +1,21 @@
 {
   "id": "sdf-vae",
-  "num": "01",
-  "year": "2025",
-  "title": "SDF-VAE",
-  "type": "RESEARCH / GENERATIVE 3D",
-  "status": "COMPUTE-BLOCKED",
-  "stack": ["PyTorch", "CUDA", "Trimesh", "NumPy"],
-  "tagline": "Variational autoencoder over signed distance fields for 3D shape generation.",
+  "num": "03",
+  "year": "2024 — 2025",
+  "title": "Multi-Perspective SDF-VAE",
+  "type": "RESEARCH / GENERATIVE MODELS",
+  "status": "PRE-PRINT",
+  "stack": ["Python", "PyTorch", "NumPy", "Matplotlib"],
+  "tagline": "Five observer networks measure geometric distance to the data manifold. Their agreement is the confidence signal.",
   "description": [
-    "SDF-VAE learns a continuous latent space over signed distance functions, so 3D geometry becomes something you can interpolate, sample, and reconstruct instead of something you store as meshes. The encoder compresses an SDF grid into a low-dimensional code; the decoder reconstructs the field, and marching cubes extracts the surface at arbitrary resolution.",
-    "Current status: pre-print. Hypotheses validated at small scale only — reconstruction fidelity and latent interpolation both behave as predicted on the shape categories I could afford to train. Full-scale training is blocked by compute access, which is exactly the bottleneck this line of research needs to clear."
+    "Standard VAEs have a quiet problem: the variance they estimate for each latent dimension is often meaningless. My hypothesis was that signed distance functions could fix this by giving the latent space a geometric prior. Instead of one encoder producing variance directly, five independent observer networks each output an SDF value, a distance to their learned manifold, and confidence weighted aggregation of the observers produces the latent parameters. If the observers agree you're near the manifold, the model is confident. If they disagree, the uncertainty is real. Trained on CelebA (162k faces), cross validated on Fashion MNIST.",
+    "The honest result is mixed, and I wrote it up that way. Variance stability improved 358x over a vanilla VAE (log variance std of 0.004 against 1.421), calibration came in at ECE 0.129 versus 0.461, and out of distribution detection hit AUROC 0.992. Reconstruction quality did not improve; it came out 60% worse than the vanilla baseline, because the geometric constraints smooth the manifold at the cost of pixel fidelity. The paper includes a formal Lipschitz bound explaining where the stability comes from, and a limitations section that names what the architecture cannot claim. It is a negative result on the primary goal with genuinely useful properties attached, and I think more papers should be written like that."
   ],
-  "video": {
-    "youtubeId": "dQw4w9WgXcQ",
-    "title": "SDF-VAE reconstruction and latent interpolation demo"
+  "paper": {
+    "title": "Multi-Perspective SDF-VAE: Interpretable Latent Representations through Signed Distance Functions",
+    "authors": "Ibrahim Akhtar — pre-print, not peer-reviewed",
+    "abstract": "Variational autoencoders suffer from unreliable latent uncertainty estimates and a lack of geometric interpretability. The Multi-Perspective SDF-VAE interposes five independent observer networks between encoder and latent parameters, each producing a signed distance value representing proximity to a learned feature manifold, with confidence weighted aggregation producing the latent parameters. On CelebA the architecture improves latent variance stability by 358x over a vanilla VAE with near perfect train test generalisation (ratio 0.9996); cross dataset validation on Fashion MNIST confirms calibration (ECE 0.129) and out of distribution detection (AUROC 0.992). Reconstruction quality does not surpass simpler baselines. A formal Lipschitz continuity bound establishes the theoretical basis for the observed variance stability.",
+    "href": "https://github.com/Ibzie/Multi-Perspective-SDF-VAE-Research/blob/main/paper/paper.pdf"
   },
-  "demo": { "label": "▸ LIVE DEMO", "href": "https://github.com/ibzie" },
-  "links": [{ "label": "GITHUB ▸ SOURCE", "href": "https://github.com/ibzie" }]
+  "links": [{ "label": "GITHUB ▸ SOURCE", "href": "https://github.com/Ibzie/Multi-Perspective-SDF-VAE-Research" }]
 }

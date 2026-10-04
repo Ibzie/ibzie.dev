@@ -7,8 +7,8 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 
 export default function App() {
-  // Projects is the main page — the site boots straight into the index.
-  const [page, setPage] = useState<PageId>('projects')
+  // Landing page is Home; Projects remains the project index.
+  const [page, setPage] = useState<PageId>('home')
   const [wiping, setWiping] = useState(false)
 
   const navigate = useCallback(

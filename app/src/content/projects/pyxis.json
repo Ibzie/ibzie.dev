@@ -1,0 +1,15 @@
+{
+  "id": "pyxis",
+  "num": "01",
+  "year": "2026",
+  "title": "Pyxis",
+  "type": "TOOL / ACCESSIBILITY × LOCAL AI",
+  "status": "RELEASED",
+  "stack": ["Python", "llama.cpp", "PyMuPDF", "Piper TTS"],
+  "tagline": "A local PDF reader for research papers, with citations you can check, notes, and a whiteboard.",
+  "description": [
+    "I read a lot of research, and I built Pyxis because NotebookLM and Gemini kept getting things wrong. Answers I couldn't check, citations that fell apart when I looked at the actual page. Pyxis runs its retrieval locally, BM25 blended with fuzzy matching over paragraphs, tables, and images, and every answer comes back with page citations I can verify against the document in front of me. There's a notes panel and a whiteboard panel built into the reader, both exportable to PDF, because the thinking around a paper should live in the same place as the paper.",
+    "The accessibility mode came later, for a blind friend of my sister's. It's a set of hotkeys that let the local AI and Piper TTS explain everything on the page, text, images, tables, all of it, for visually impaired readers. It had to run offline because internet access is a genuine problem here, so Pyxis checks what your hardware can handle and downloads the best model that runs well on it, with a CUDA build if you have an NVIDIA GPU. Reading position saves per PDF, image descriptions are cached so the model never runs twice on the same figure, and nothing leaves the machine. No cloud, no API keys, no telemetry."
+  ],
+  "links": [{ "label": "GITHUB ▸ RELEASES", "href": "https://github.com/Ibzie/Pyxis/releases" }]
+}

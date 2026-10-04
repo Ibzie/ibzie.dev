@@ -1,0 +1,21 @@
+{
+  "id": "sequence-game-tournament",
+  "num": "04",
+  "year": "2026",
+  "title": "Sequence Game Tournament",
+  "type": "RESEARCH / LLM AGENTS × GAME THEORY",
+  "status": "PRE-PRINT",
+  "stack": ["Python", "Ollama", "FastAPI", "NumPy"],
+  "tagline": "Six small language models play the board game Sequence against each other, 135 games, one consumer GPU.",
+  "description": [
+    "This started with a simple question: what happens if small language models play a board game against each other? Sequence turned out to be a good test bed because it demands spatial reasoning, hand management, and sabotage under imperfect information, and it had no AI opponent anywhere when I went looking. So I built one, then built five more, then ran a full round robin tournament: six open weight models at 3B to 4B parameters, 135 games, best of three per pairing, all of it local on a single RTX 4060 with 8 GB of VRAM.",
+    "The results were not what parameter counts would predict. IBM's Granite 4 at 3B won 80% of its games while Meta's Llama 3.2, also 3B, won 20%. Instruction following quality mattered more than size at this scale. There's also a statistically significant first mover advantage (58.5% of games, p ≈ 0.048), and not one model ever fell back to the random move fallback across the entire run. The whole experiment ran on a consumer desktop on purpose: competitive LLM agent benchmarking should not require cloud infrastructure."
+  ],
+  "paper": {
+    "title": "Small Language Models as Strategic Agents in the Board Game Sequence",
+    "authors": "Ibrahim Akhtar — pre-print, not peer-reviewed",
+    "abstract": "Six small open source language models (3B to 4B parameters) compete as autonomous agents in a round robin tournament in the board game Sequence, run across three complete iterations in a best of three format per pairing. IBM Granite 4 (3B) achieves an 80% win rate while Meta Llama 3.2 (3B) finishes at 20%, and a statistically significant first mover advantage is observed (58.5% of games won by Player 1). All models ran locally on a single consumer desktop (RTX 4060 8 GB), demonstrating that competitive LLM agent benchmarking is achievable without cloud infrastructure.",
+    "href": "https://github.com/Ibzie/AI-Agents-Sequence-Game-Tournament/blob/main/Paper/slm_sequence_tournament.pdf"
+  },
+  "links": [{ "label": "GITHUB ▸ SOURCE", "href": "https://github.com/Ibzie/AI-Agents-Sequence-Game-Tournament" }]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "conntrail",
+  "num": "02",
+  "year": "2026",
+  "title": "Conntrail",
+  "type": "TOOL / AGENT OBSERVABILITY",
+  "status": "RELEASED",
+  "stack": ["Python", "LangGraph", "FastAPI", "DSPy"],
+  "tagline": "Observability for agentic workflows that tells you how brittle a routing decision was, not just what happened.",
+  "description": [
+    "Most agent tracing tells you what happened. Conntrail tells you whether the decision was about to fall apart. You wrap a node with trace_node() and your agent runs exactly as before, but in the background a cheap contrast model produces three perturbed variants of the input: a paraphrase, an urgency stripped version, and a semantic inversion. The node runs again on all four, and Conntrail computes normalized Shannon entropy over the routing outcomes. 0.0 means the route never flips. 1.0 means a rewording of the same request sends your agent down a different path. An attribution table names which dimension flipped it first, plus the counterfactual: remove that dimension and the agent takes the other route.",
+    "The engineering rule throughout is that observation never touches behavior. Analysis runs async so the hot path is never blocked, and if your node raises, Conntrail records an error trace and then rethrows your original exception. Records ship over HTTP to a FastAPI collector on SQLite with a filterable HTMX dashboard: per trace detail, failures grouped by category, per node token and cost telemetry, and a before and after panel for the CPE-GEPA optimizer, which uses entropy feedback from the traces to evolve better prompts. The one command demo traces my Sequence tournament agent as an external target, read only, which is a decent proof that the wrapping really is non invasive."
+  ],
+  "links": [{ "label": "GITHUB ▸ SOURCE", "href": "https://github.com/Conntrail/Conntrail" }]
+}

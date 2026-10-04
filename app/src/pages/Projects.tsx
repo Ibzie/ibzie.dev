@@ -8,6 +8,7 @@ const statusColor: Record<Project['status'], string> = {
   'PRE-PRINT': 'var(--blue)',
   'COMPUTE-BLOCKED': 'var(--red)',
   VALIDATED: 'var(--green)',
+  RELEASED: 'var(--green)',
 }
 
 export default function Projects() {
@@ -72,6 +73,23 @@ export default function Projects() {
       <p className="mt-8 font-display text-lg tracking-[0.15em] text-[var(--ink-dim)] reveal">
         ▸ SELECT AN ENTRY TO OPEN ITS FILE — DEMO REEL + FULL WRITE-UP
       </p>
+
+      <div className="mt-6 reveal border-2 border-[var(--ink)] hard-shadow" style={{ background: 'var(--paper-2)' }}>
+        <div className="flex flex-wrap items-center justify-between gap-4 px-4 py-4">
+          <p className="text-base md:text-lg text-[var(--ink)]/85 max-w-xl">
+            This index is only a slice of the work. For experiments, tools, and one-off builds that
+            didn't make the cut, browse the full archive on GitHub.
+          </p>
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary inline-block whitespace-nowrap"
+          >
+            MORE PROJECTS ON GITHUB ↗
+          </a>
+        </div>
+      </div>
 
       {open && <ProjectModal project={open} onClose={() => setOpen(null)} />}
     </div>

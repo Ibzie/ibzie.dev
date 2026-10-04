@@ -1,4 +1,4 @@
-export type ProjectStatus = 'PRE-PRINT' | 'COMPUTE-BLOCKED' | 'VALIDATED'
+export type ProjectStatus = 'PRE-PRINT' | 'COMPUTE-BLOCKED' | 'VALIDATED' | 'RELEASED'
 
 /** Optional demo video, hosted on YouTube. */
 export type ProjectVideo = {
@@ -41,6 +41,8 @@ export type Profile = {
   role: string
   location: string
   github: string
+  linkedin: string
+  x: string
   availability: string
 }
 

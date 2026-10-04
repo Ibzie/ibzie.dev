@@ -15,6 +15,9 @@ dist/
 .wrangler/
 app/.wrangler/
 
+# Local content staging
+Projects_Updates_Local/
+
 # Logs
 *.log
 npm-debug.log*

@@ -2,42 +2,61 @@ import { ChapterMarker } from '../components/FX'
 import { useReveal } from '../hooks/useReveal'
 
 const skills = [
-  'PYTORCH / CUDA KERNELS',
-  'GENERATIVE MODELS (VAE, DIFFUSION)',
+  'DEEP LEARNING ARCHITECTURE',
   'MECHANISTIC INTERPRETABILITY',
   'MIXTURE-OF-EXPERTS SYSTEMS',
-  'DISTRIBUTED TRAINING (RAY)',
-  'PYTHON / TYPESCRIPT',
-  'MLOPS / DEPLOYMENT',
+  'MULTI-MODAL / AGENTIC PIPELINES',
+  'PRODUCTION ML (GCP / AWS / BARE METAL)',
+  'PYTORCH / LIBTORCH / UNSLOTH',
+  'PYTHON / C++ / LUA',
 ]
 
 const timeline = [
   {
-    period: '2025 — NOW',
+    period: 'DEC 2025 — PRESENT',
     role: 'ML ENGINEER',
     org: 'WEEL.IO',
-    detail: 'Production ML systems — model development through deployment.',
+    detail:
+      'Architected autonomous multi-modal agentic pipelines serving 100k+ requests/week across 7 enterprise organizations, and engineered end-to-end PII anonymization for zero-trust compliance.',
     highlight: false,
   },
   {
-    period: '2025',
-    role: 'RESEARCH — KDD LAB',
-    org: 'VOCALINK PROJECT',
-    detail: 'Google APAC Top 10, 2025.',
+    period: 'JUN 2025 — DEC 2025',
+    role: 'ML ENGINEER',
+    org: 'TALENTBRIDGE FI & NESTE',
+    detail:
+      'Built cloud-native automation pipelines on GCP (+15% target KPIs) and high-concurrency on-premise Voice AI, cutting operational costs 65% with multilingual conversational agents.',
+    highlight: false,
+  },
+  {
+    period: 'APR 2024 — JUN 2025',
+    role: 'SOFTWARE DEVELOPER — VOCALINK',
+    org: 'KDD LAB',
+    detail:
+      'Co-founded a voice-driven document editor for accessibility; architected a low-latency MoE routing system and hit 40% user preference in a 65-participant blind evaluation.',
+    highlight: false,
+  },
+  {
+    period: 'JUN 2025',
+    role: 'AWARD — TOP 10 FINALIST',
+    org: 'GOOGLE APAC SOLUTION CHALLENGE',
+    detail:
+      'Top 10 APAC finalist (out of 3,300+ entries) for Vocalink, an AI voice-driven editor for neurodivergent users; presented at the APAC Digital Transformation Forum 2025.',
     highlight: true,
   },
   {
-    period: '— 2025',
-    role: 'ML ENGINEER',
-    org: 'TALENTBRIDGE',
-    detail: 'Machine learning engineering across client workloads.',
+    period: 'JUN 2024 — AUG 2024',
+    role: 'DATA SCIENCE INTERN',
+    org: 'RAYN',
+    detail:
+      'Engineered context-retrieval pipelines indexing 50GB of documents and a multi-vector retriever that cut RAG hallucinations ~70%, plus local AI infrastructure for full data privacy.',
     highlight: false,
   },
   {
-    period: 'EDUCATION',
-    role: 'BDS — DATA SCIENCE',
+    period: 'AUG 2021 — JUL 2025',
+    role: 'BSC — DATA SCIENCE',
     org: 'FAST NUCES',
-    detail: 'Bachelor of Data Science.',
+    detail: 'Bachelor of Data Science. 2 Dean’s List awards.',
     highlight: false,
   },
 ]
@@ -77,7 +96,7 @@ export default function About() {
         <div className="reveal border-2 border-[var(--ink)] h-fit" style={{ background: 'var(--paper-2)' }}>
           <div className="border-b-2 border-[var(--ink)] px-4 py-1.5 font-display text-base tracking-[0.25em] text-[var(--ink-dim)] flex justify-between">
             <span>SKILL.MENU</span>
-            <span style={{ color: 'var(--blue)' }}>7 LOADED</span>
+            <span style={{ color: 'var(--blue)' }}>{skills.length} LOADED</span>
           </div>
           <ul>
             {skills.map((s, i) => (

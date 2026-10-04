@@ -3,6 +3,8 @@ import { profile } from '../data/projects'
 import { useReveal } from '../hooks/useReveal'
 
 const channels = [
+  { label: 'LINKEDIN', value: 'linkedin.com/in/ibrahim-akhtar', href: profile.linkedin },
+  { label: 'X', value: 'x.com/Ibziiee', href: profile.x },
   { label: 'GITHUB', value: 'github.com/ibzie', href: profile.github },
   { label: 'LOCATION', value: profile.location, href: null },
   { label: 'STATUS', value: profile.availability, href: null },
@@ -20,8 +22,8 @@ export default function Contact() {
       </h1>
 
       <p className="reveal mt-6 max-w-xl text-lg text-[var(--ink)]/85">
-        Research collaboration, compute access, or interesting problems — the fastest way to reach
-        me is through GitHub.
+        Research collaboration, compute access, or interesting problems — reach out on LinkedIn or X
+        if you need to get in touch. The fastest way to reach me is through LinkedIn or X.
       </p>
 
       <div className="mt-10 border-2 border-[var(--ink)] hard-shadow" style={{ background: 'var(--paper-2)' }}>
@@ -52,7 +54,7 @@ export default function Contact() {
       </div>
 
       <p className="reveal mt-8 font-display text-lg tracking-[0.15em] text-[var(--ink-dim)]">
-        ▸ MORE CHANNELS (EMAIL / LINKEDIN / X) CAN BE PATCHED INTO THIS FILE ON REQUEST
+        ▸ FASTEST RESPONSE ON LINKEDIN / X — SEE CHANNEL.LIST ABOVE
       </p>
     </div>
   )

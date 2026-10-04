@@ -6,6 +6,7 @@ const statusColor: Record<Project['status'], string> = {
   'PRE-PRINT': 'var(--blue)',
   'COMPUTE-BLOCKED': 'var(--red)',
   VALIDATED: 'var(--green)',
+  RELEASED: 'var(--green)',
 }
 
 export default function ProjectModal({
